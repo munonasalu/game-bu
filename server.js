@@ -36,7 +36,22 @@ function handleEvent(event) {
   }
 
   // create a echoing text message
-  const echo = { type: 'text', text: event.message.text };
+  if(event.message.text=='text' &&event.message.text!=="夢咲楓" &&event.message.text!=="部長" &&event.message.text!=="道明寺晴翔" &&event.message.text!=="副部長"　&&event.message.text!=="道明寺晴翔" &&event.message.text!=="桜樹みりあ" &&event.message.text!=="風見涼"){
+    var rand = Math.floor(Math.random()*3)+1;
+    var selectText;
+    switch (rand) {
+      case 1:
+        selectText = "楓「シャドウボールゥ！」"
+        break;
+      case 2:
+        selectText = "涼「メロンパンメロンパンメロンパン」"
+        break;
+      case 3:
+        selectText = "晴翔「ﾌﾊﾊﾊﾊﾊﾊﾊﾊﾊﾊﾊﾊﾊﾊﾊﾊﾊﾊ！」"
+        break;
+    }
+  }
+  const echo = { type: 'text', text: selectText };
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
